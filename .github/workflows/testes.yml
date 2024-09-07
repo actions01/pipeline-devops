@@ -20,12 +20,6 @@ jobs:
     integration-test:
         name: Teste de Unidade 
         runs-on: ubuntu-latest
-        steps:
-          - name: Efetuando o login do Docker hub
-            uses: docker/login-action@v3
-            with:
-              username: ${{ secrets.DOCKERHUB_USER }}
-              password: ${{ secrets.DOCKERHUB_PWD }}            
         services:
             postgre:  
                 image: postgre:latest
@@ -49,3 +43,5 @@ jobs:
               run: dotnet test ./Review-Filmes.Test.Integration/Review-Filmes.Test.Integration.csproj           
               env:
                 ConnectionStrings__DefaultConnection: "Host=localhost;Database=review;Username=review;Password=Passw0rd2023!"
+
+                ##continuar minuti 30
