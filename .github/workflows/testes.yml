@@ -20,6 +20,12 @@ jobs:
     integration-test:
         name: Teste de Unidade 
         runs-on: ubuntu-latest
+        steps:
+          - name: Efetuando o login do Docker hub
+            uses: docker/login-action@v3
+            with:
+              username: ${{ secrets.DOCKERHUB_USER }}
+              password: ${{ secrets.DOCKERHUB_PWD }}            
         services:
             postgre:  
                 image: postgre:latest
